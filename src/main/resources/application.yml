@@ -8,7 +8,8 @@ spring:
   config:
     import: "optional:configserver:http://localhost:8071/"
   datasource:
-    url: jdbc:mysql://localhost:3308/cardsdb
+    #url: jdbc:mysql://localhost:3308/cardsdb
+    url: jdbc:mysql://localhost:3306/cardsdb
     username: root
     password: root
   sql:
@@ -17,8 +18,34 @@ spring:
   jpa:
     show-sql: true
 
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka
+
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+endpoints:
+  shutdown:
+    enabled: true
+
+
+
+info:
+  app: "cards"
+  description: "IdealBank cards application"
+  version: "1.0.0"
