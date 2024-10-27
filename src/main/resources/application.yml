@@ -49,3 +49,7 @@ info:
   app: "cards"
   description: "IdealBank cards application"
   version: "1.0.0"
+
+logging:
+  level:
+    com.idealbank.cards: DEBUG
